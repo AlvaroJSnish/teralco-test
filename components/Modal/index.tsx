@@ -1,9 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import gfm from "remark-gfm";
 
 import { Dialog, Transition } from "@headlessui/react";
 
 import { Comment, Issue } from "@lib/types";
 import Loading from "@components/Loading";
+import CommentComponent from "@components/Comment";
 
 import styles from "./styles.module.css";
 
@@ -67,9 +70,27 @@ export default function Modal({ issue }: ModalProps) {
                     {issue?.pull_request ? "Pull request" : "issue"}
                   </span>
                   <div className="mt-2">
-                    <p className={styles.body}>{issue?.body}</p>
+                    <p className={styles.body}>
+                      <ReactMarkdown remarkPlugins={[gfm]}>
+                        {issue?.body as string}
+                      </ReactMarkdown>
+                    </p>
                   </div>
-                  <div>{loadingComments ? <Loading /> : null}</div>
+                  <div>
+                    {loadingComments ? (
+                      <Loading />
+                    ) : (
+                      <div className={styles.comments}>
+                        {Array.isArray(comments) &&
+                          comments.map((comment: Comment) => (
+                            <CommentComponent
+                              key={comment.id}
+                              comment={comment}
+                            />
+                          ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
               <div className={styles.buttonContainer}>

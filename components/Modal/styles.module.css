@@ -31,7 +31,11 @@
 }
 
 .body {
-  @apply text-sm text-gray-500;
+  @apply text-justify text-sm text-gray-500;
+}
+
+.comments {
+  @apply mt-5 sm:mt-6;
 }
 
 .button {
