@@ -41,3 +41,15 @@
 .state {
   @apply mt-2 flex items-center text-sm text-gray-500;
 }
+
+.icon {
+  @apply flex-shrink-0 mr-1.5 h-5 w-5;
+}
+
+.labels {
+  @apply ml-auto;
+}
+
+.label {
+  @apply italic text-xs;
+}

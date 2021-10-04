@@ -1,5 +1,12 @@
 import Image from "next/image";
-import { CheckCircleIcon, ChevronRightIcon } from "@heroicons/react/solid";
+import {
+  CheckCircleIcon,
+  ChevronRightIcon,
+  ChatAlt2Icon,
+  XCircleIcon,
+  BackspaceIcon,
+  RefreshIcon,
+} from "@heroicons/react/solid";
 
 import { Issue } from "@lib/types";
 
@@ -34,15 +41,61 @@ export default function IssueComponent({ issue }: IssueProps) {
               <div className={styles.subinfo}>
                 <div>
                   <p className={styles.date}>
-                    Applied on{" "}
-                    <time dateTime={issue.updated_at}>{issue.updated_at}</time>
+                    Created on{" "}
+                    <time dateTime={issue.created_at}>
+                      {new Date(issue.created_at).toLocaleDateString()}
+                    </time>
                   </p>
                   <p className={styles.state}>
-                    <CheckCircleIcon
-                      className="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
-                      aria-hidden="true"
-                    />
-                    {issue.state}
+                    {issue.state === "open" ? (
+                      <>
+                        <CheckCircleIcon
+                          className={`${styles.icon} text-green-400`}
+                          aria-hidden="true"
+                        />
+                        <span className="mr-4">{issue.state}</span>
+                      </>
+                    ) : (
+                      <>
+                        <XCircleIcon
+                          className={`${styles.icon} text-red-400`}
+                          aria-hidden="true"
+                        />
+                        <span className="mr-4">{issue.state}</span>
+                      </>
+                    )}
+                    <ChatAlt2Icon className={styles.icon} aria-hidden="true" />
+                    <span className="mr-4">{issue.comments}</span>
+                    {!issue.pull_request ? (
+                      <>
+                        <BackspaceIcon
+                          className={styles.icon}
+                          aria-hidden="true"
+                        />
+                        <span className="mr-4">issue</span>
+                      </>
+                    ) : (
+                      <>
+                        <RefreshIcon
+                          className={styles.icon}
+                          aria-hidden="true"
+                        />
+                        <span className="mr-4">pull request</span>
+                      </>
+                    )}
+                    <div className={styles.labels}>
+                      {issue.labels.map((label) => (
+                        <span
+                          key={label.id}
+                          className={`${styles.label} mr-4`}
+                          style={{
+                            color: `#${label.color}`,
+                          }}
+                        >
+                          {label.name}
+                        </span>
+                      ))}
+                    </div>
                   </p>
                 </div>
               </div>

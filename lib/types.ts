@@ -39,6 +39,7 @@ export interface Issue {
   closed_at: string;
   body: string;
   labels: Array<Label>;
+  pull_request: PullRequest;
 }
 
 export interface Label {
@@ -49,4 +50,11 @@ export interface Label {
   color: string;
   default: boolean;
   description: string;
+}
+
+export interface PullRequest {
+  url: string;
+  html_url: string;
+  diff_url: string;
+  patch_url: string;
 }

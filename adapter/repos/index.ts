@@ -1,4 +1,4 @@
-import { Issue, Repository } from "@lib/types";
+import { Issue } from "@lib/types";
 
 interface getRepositoryIssuesProps {
   repository: string;
