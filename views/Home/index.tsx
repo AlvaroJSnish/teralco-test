@@ -8,9 +8,9 @@ import { HomeProps } from "pages/[[...params]]";
 import Button from "@components/Button";
 import RepoNotFound from "@components/RepoNotFound";
 import { useRouter } from "next/dist/client/router";
-import Modal from "@components/Modal";
 import { Issue } from "@lib/types";
 
+import Modal from "../Modal";
 import styles from "./styles.module.css";
 
 export default function Home({ issues, error }: HomeProps): JSX.Element {

@@ -3,15 +3,6 @@ import { useRouter } from "next/dist/client/router";
 export default function RepoNotFound({ error }: { error: string | null }) {
   const { username, repository } = useRouter().query;
 
-  if (error) {
-    return (
-      <div>
-        <h1>Error</h1>
-        <p>{error}</p>
-      </div>
-    );
-  }
-
   if (!username && !repository) {
     return (
       <h2>
@@ -36,6 +27,15 @@ export default function RepoNotFound({ error }: { error: string | null }) {
         You need to enter a repo name, if the repo is found, its issues will
         appear here!
       </h2>
+    );
+  }
+
+  if (error) {
+    return (
+      <div>
+        <h1>Error</h1>
+        <p>{error}</p>
+      </div>
     );
   }
 
