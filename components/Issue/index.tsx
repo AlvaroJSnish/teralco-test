@@ -20,7 +20,7 @@ interface IssueProps {
 export default function IssueComponent({ issue, onClick }: IssueProps) {
   return (
     <li onClick={() => onClick(issue)}>
-      <a href="#" className={styles.listLink}>
+      <div className={styles.listLink}>
         <div className={styles.listLinkContainer}>
           <div className={styles.listLinkInnerContainer}>
             <div className={styles.linkImageContainer}>
@@ -109,7 +109,7 @@ export default function IssueComponent({ issue, onClick }: IssueProps) {
             />
           </div>
         </div>
-      </a>
+      </div>
     </li>
   );
 }
