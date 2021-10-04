@@ -1,3 +1,7 @@
 .input {
   @apply shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-48 h-12 sm:text-sm border-gray-300 rounded-md mb-4 px-4 mt-1;
 }
+
+.label {
+  @apply block text-sm font-medium text-gray-700;
+}

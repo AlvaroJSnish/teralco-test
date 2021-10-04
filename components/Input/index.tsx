@@ -1,17 +1,21 @@
 import styles from "./styles.module.css";
 
+interface InputProps {
+  inputName: string;
+  placeholder: string;
+  classname?: string;
+  defaultValue?: string;
+}
+
 export default function Input({
-  inputName = "",
-  placeholder = "",
-  classname = "",
-  defaultValue = "",
-}) {
+  inputName,
+  placeholder,
+  classname,
+  defaultValue,
+}: InputProps) {
   return (
     <div className={classname}>
-      <label
-        htmlFor={inputName}
-        className="block text-sm font-medium text-gray-700"
-      >
+      <label htmlFor={inputName} className={styles.label}>
         {inputName}
       </label>
       <input

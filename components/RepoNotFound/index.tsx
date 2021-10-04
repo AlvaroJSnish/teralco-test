@@ -1,7 +1,16 @@
 import { useRouter } from "next/dist/client/router";
 
-export default function RepoNotFound() {
+export default function RepoNotFound({ error }: { error: string | null }) {
   const { username, repository } = useRouter().query;
+
+  if (error) {
+    return (
+      <div>
+        <h1>Error</h1>
+        <p>{error}</p>
+      </div>
+    );
+  }
 
   if (!username && !repository) {
     return (

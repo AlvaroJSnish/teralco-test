@@ -14,11 +14,12 @@ import styles from "./styles.module.css";
 
 interface IssueProps {
   issue: Issue;
+  onClick: (issue: Issue) => void;
 }
 
-export default function IssueComponent({ issue }: IssueProps) {
+export default function IssueComponent({ issue, onClick }: IssueProps) {
   return (
-    <li>
+    <li onClick={() => onClick(issue)}>
       <a href="#" className={styles.listLink}>
         <div className={styles.listLinkContainer}>
           <div className={styles.listLinkInnerContainer}>

@@ -12,11 +12,18 @@ export async function getRepositoryIssues({
   username,
   perPage = 10,
   page = 1,
-}: getRepositoryIssuesProps): Promise<Array<Issue>> {
-  const response = await fetch(
-    `https://api.github.com/repos/${username}/${repository}/issues?per_page=${perPage}&page=${page}`
-  );
+}: getRepositoryIssuesProps): Promise<Array<Issue> | string> {
+  const ghToken = process.env.GITHUB_TOKEN
+    ? `access_token=${process.env.GITHUB_TOKEN}`
+    : "";
+  const url = `https://api.github.com/repos/${username}/${repository}/issues?per_page=${perPage}&page=${page}&${ghToken}`;
+
+  const response = await fetch(url);
   const json = await response.json();
+
+  if (!Array.isArray(json)) {
+    return "Hit maximum API calls, try again later";
+  }
 
   return json;
 }

@@ -1,12 +1,14 @@
 import styles from "./styles.module.css";
 
-export default function Button({ type, text = "" }) {
+interface ButtonProps {
+  type: "button" | "submit" | "reset";
+  text: string;
+}
+
+export default function Button({ type, text = "" }: ButtonProps): JSX.Element {
   return (
     <div>
-      <label
-        htmlFor="submit"
-        className="block text-sm font-medium text-gray-700 sr-only"
-      >
+      <label htmlFor={type} className={styles.label}>
         Submit
       </label>
       <button className={styles.button} type={type}>
