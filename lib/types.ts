@@ -38,4 +38,15 @@ export interface Issue {
   updated_at: string;
   closed_at: string;
   body: string;
+  labels: Array<Label>;
+}
+
+export interface Label {
+  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  color: string;
+  default: boolean;
+  description: string;
 }

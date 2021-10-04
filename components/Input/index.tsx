@@ -4,6 +4,7 @@ export default function Input({
   inputName = "",
   placeholder = "",
   classname = "",
+  defaultValue = "",
 }) {
   return (
     <div className={classname}>
@@ -11,7 +12,7 @@ export default function Input({
         htmlFor={inputName}
         className="block text-sm font-medium text-gray-700"
       >
-        Username
+        {inputName}
       </label>
       <input
         type="text"
@@ -19,6 +20,7 @@ export default function Input({
         name={inputName}
         className={styles.input}
         placeholder={placeholder}
+        defaultValue={defaultValue}
       />
     </div>
   );

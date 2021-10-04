@@ -17,7 +17,6 @@ export async function getRepositoryIssues({
     `https://api.github.com/repos/${username}/${repository}/issues?per_page=${perPage}&page=${page}`
   );
   const json = await response.json();
-  console.log(json);
 
   return json;
 }

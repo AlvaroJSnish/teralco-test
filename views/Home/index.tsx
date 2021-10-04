@@ -1,5 +1,3 @@
-import { useRouter } from "next/dist/client/router";
-
 import Pagination from "@components/Pagination";
 import IssueComponent from "@components/Issue";
 import Input from "@components/Input";
@@ -9,6 +7,7 @@ import { HomeProps } from "pages/[[...params]]";
 import styles from "./styles.module.css";
 import Button from "@components/Button";
 import RepoNotFound from "@components/RepoNotFound";
+import { useRouter } from "next/dist/client/router";
 
 export default function Home({ issues }: HomeProps): JSX.Element {
   const router = useRouter();
@@ -18,11 +17,16 @@ export default function Home({ issues }: HomeProps): JSX.Element {
       <div className={styles.innerContainer}>
         <div className="px-4 py-8 sm:px-0">
           <form action="/" className="flex flex-row items-center">
-            <Input inputName="username" placeholder="Facebook" />
+            <Input
+              inputName="username"
+              placeholder="Facebook"
+              defaultValue={router.query.username as string}
+            />
             <Input
               classname="ml-4"
               inputName="repository"
               placeholder="React, React Native..."
+              defaultValue={router.query.repository as string}
             />
             <Button type="submit" text="Search" />
           </form>
