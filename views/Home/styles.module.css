@@ -1,0 +1,11 @@
+.homeContainer {
+  @apply py-10;
+}
+
+.innerContainer {
+  @apply max-w-7xl mx-auto sm:px-6 lg:px-8;
+}
+
+.list {
+  @apply divide-y divide-gray-200;
+}

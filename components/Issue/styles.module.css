@@ -1,0 +1,43 @@
+.listLink {
+  @apply block hover:bg-gray-50;
+}
+
+.listLinkContainer {
+  @apply flex items-center px-4 py-4 sm:px-6;
+}
+
+.listLinkInnerContainer {
+  @apply min-w-0 flex-1 flex items-center;
+}
+
+.linkImageContainer {
+  @apply flex-shrink-0;
+}
+
+.linkImage {
+  @apply rounded-full;
+}
+
+.infoContainer {
+  @apply min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4;
+}
+
+.title {
+  @apply text-sm font-medium text-indigo-600 truncate;
+}
+
+.subtitle {
+  @apply mt-2 flex items-center text-sm text-gray-500;
+}
+
+.subinfo {
+  @apply hidden md:block;
+}
+
+.date {
+  @apply text-sm text-gray-900;
+}
+
+.state {
+  @apply mt-2 flex items-center text-sm text-gray-500;
+}
