@@ -10,5 +10,5 @@ Starting the project:
 Starting the tests:
   - `yarn dev` or `npm run dev` (you need to start the app first)
   - `yarn cypress` or `npm run cypress`
-  - Select one of the four specs that exists, then hit play.
+  - Select the specs that exists, then hit play.
   - A test battery will be run automated on your browser for every spec required on the project.
