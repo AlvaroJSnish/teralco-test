@@ -3,11 +3,16 @@ import styles from "./styles.module.css";
 interface ButtonProps {
   type: "button" | "submit" | "reset";
   text: string;
+  classname?: string;
 }
 
-export default function Button({ type, text = "" }: ButtonProps): JSX.Element {
+export default function Button({
+  type,
+  text = "",
+  classname,
+}: ButtonProps): JSX.Element {
   return (
-    <div>
+    <div className={classname}>
       <label htmlFor={type} className={styles.label}>
         Submit
       </label>

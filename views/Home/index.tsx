@@ -27,17 +27,22 @@ export default function Home({ issues, error }: HomeProps): JSX.Element {
         <div className="px-4 py-8 sm:px-0">
           <form action="/" className="flex items-center sm:flex-row flex-col">
             <Input
+              classname="w-full sm:w-48"
               inputName="username"
               placeholder="Facebook"
               defaultValue={router.query.username as string}
             />
             <Input
-              classname="ml-4"
+              classname="sm:ml-4 w-full sm:w-48"
               inputName="repository"
               placeholder="React, React Native..."
               defaultValue={router.query.repository as string}
             />
-            <Button type="submit" text="Search" />
+            <Button
+              classname="w-full sm:w-48 sm:ml-4 sm:mt-5"
+              type="submit"
+              text="Search"
+            />
           </form>
           {issues && issues.length > 0 ? (
             <div>

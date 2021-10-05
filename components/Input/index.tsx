@@ -22,7 +22,7 @@ export default function Input({
         type="text"
         id={inputName}
         name={inputName}
-        className={styles.input}
+        className={`${styles.input}`}
         placeholder={placeholder}
         defaultValue={defaultValue}
       />

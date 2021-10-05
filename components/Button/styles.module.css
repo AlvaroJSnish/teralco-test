@@ -1,5 +1,5 @@
 .button {
-  @apply shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-48 h-12 sm:text-sm border-gray-300 rounded-md mb-4 px-4 mt-1 bg-indigo-700 text-white ml-4;
+  @apply shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-48 h-12 sm:text-sm border-gray-300 rounded-md mb-4 px-4 mt-1 bg-indigo-700 text-white w-full sm:w-44;
 }
 
 .label {
