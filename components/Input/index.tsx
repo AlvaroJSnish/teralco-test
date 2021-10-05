@@ -5,6 +5,7 @@ interface InputProps {
   placeholder: string;
   classname?: string;
   defaultValue?: string;
+  id?: string;
 }
 
 export default function Input({
@@ -12,6 +13,7 @@ export default function Input({
   placeholder,
   classname,
   defaultValue,
+  id,
 }: InputProps) {
   return (
     <div className={classname}>
@@ -20,11 +22,11 @@ export default function Input({
       </label>
       <input
         type="text"
-        id={inputName}
         name={inputName}
         className={`${styles.input}`}
         placeholder={placeholder}
         defaultValue={defaultValue}
+        id={id}
       />
     </div>
   );

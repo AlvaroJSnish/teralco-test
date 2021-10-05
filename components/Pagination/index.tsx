@@ -23,7 +23,9 @@ export default function Pagination() {
               router.query.repository
             }&page=${(parseInt(router.query.page as string) || 1) - 1}`}
           >
-            <a className={styles.button}>Previous</a>
+            <a id="previous-page-button" className={styles.button}>
+              Previous
+            </a>
           </Link>
         )}
         <Link
@@ -31,7 +33,9 @@ export default function Pagination() {
             router.query.repository
           }&page=${(parseInt(router.query.page as string) || 1) + 1}`}
         >
-          <a className={`ml-3 ${styles.button}`}>Next</a>
+          <a id="next-page-button" className={`ml-3 ${styles.button}`}>
+            Next
+          </a>
         </Link>
       </div>
     </nav>

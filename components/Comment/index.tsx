@@ -12,7 +12,7 @@ interface CommentProps {
 
 export default function CommentComponent({ comment }: CommentProps) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="issue-comment">
       <div className={styles.imageContainer}>
         <Image
           className={styles.image}
@@ -23,11 +23,11 @@ export default function CommentComponent({ comment }: CommentProps) {
         />
       </div>
       <div className={styles.comment}>
-        <strong>{comment.user.login}</strong>{" "}
-        <span className={styles.date}>
+        <strong id="issue-comment-user">{comment.user.login}</strong>{" "}
+        <span id="issue-comment-date" className={styles.date}>
           {new Date(comment.created_at).toLocaleDateString()}
         </span>
-        <p className={styles.body}>
+        <p id="issue-comment-body" className={styles.body}>
           <ReactMarkdown remarkPlugins={[gfm]}>{comment.body}</ReactMarkdown>
         </p>
       </div>

@@ -16,7 +16,7 @@ export default function Button({
       <label htmlFor={type} className={styles.label}>
         Submit
       </label>
-      <button className={styles.button} type={type}>
+      <button className={styles.button} type={type} id="search-repo-button">
         {text}
       </button>
     </div>

@@ -36,7 +36,7 @@ export default function Modal({ issue }: ModalProps) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className={styles.dialog} onClose={setOpen}>
-        <div className={styles.container}>
+        <div className={styles.container} id="issue-modal">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -64,13 +64,13 @@ export default function Modal({ issue }: ModalProps) {
               <div>
                 <div className="mt-3 text-center sm:mt-5">
                   <Dialog.Title as="h3" className={styles.title}>
-                    {issue?.title}
+                    <span id="issue-title">{issue?.title}</span>
                   </Dialog.Title>
-                  <span className={styles.type}>
+                  <span className={styles.type} id="issue-type">
                     {issue?.pull_request ? "Pull request" : "issue"}
                   </span>
                   <div className="mt-2">
-                    <p className={styles.body}>
+                    <p className={styles.body} id="issue-body">
                       <ReactMarkdown remarkPlugins={[gfm]}>
                         {issue?.body as string}
                       </ReactMarkdown>
@@ -80,7 +80,7 @@ export default function Modal({ issue }: ModalProps) {
                     {loadingComments ? (
                       <Loading />
                     ) : (
-                      <div className={styles.comments}>
+                      <div className={styles.comments} id="issue-comments-list">
                         {Array.isArray(comments) &&
                           comments.map((comment: Comment) => (
                             <CommentComponent

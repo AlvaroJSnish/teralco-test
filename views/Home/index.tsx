@@ -31,12 +31,14 @@ export default function Home({ issues, error }: HomeProps): JSX.Element {
               inputName="username"
               placeholder="Facebook"
               defaultValue={router.query.username as string}
+              id="username-input"
             />
             <Input
               classname="sm:ml-4 w-full sm:w-48"
               inputName="repository"
               placeholder="React, React Native..."
               defaultValue={router.query.repository as string}
+              id="repository-input"
             />
             <Button
               classname="w-full sm:w-48 sm:ml-4 sm:mt-5"

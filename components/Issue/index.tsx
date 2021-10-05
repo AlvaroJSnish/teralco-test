@@ -19,7 +19,7 @@ interface IssueProps {
 
 export default function IssueComponent({ issue, onClick }: IssueProps) {
   return (
-    <li onClick={() => onClick(issue)}>
+    <li onClick={() => onClick(issue)} id="issue-item">
       <div className={styles.listLink}>
         <div className={styles.listLinkContainer}>
           <div className={styles.listLinkInnerContainer}>
