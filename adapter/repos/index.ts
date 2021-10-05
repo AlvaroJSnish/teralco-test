@@ -21,8 +21,8 @@ export async function getRepositoryIssues({
   const response = await fetch(url);
   const json = await response.json();
 
-  if (!Array.isArray(json)) {
-    return "Hit maximum API calls, try again later";
+  if (json.message) {
+    return json.message;
   }
 
   return json;

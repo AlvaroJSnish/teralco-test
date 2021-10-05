@@ -30,7 +30,7 @@ export default function RepoNotFound({ error }: { error: string | null }) {
     );
   }
 
-  if (error) {
+  if (error !== "Not Found") {
     return (
       <div>
         <h1>Error</h1>
