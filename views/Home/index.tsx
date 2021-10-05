@@ -62,7 +62,7 @@ export default function Home({ issues, error }: HomeProps): JSX.Element {
               <Pagination />
             </div>
           ) : (
-            <RepoNotFound error={error} />
+            <RepoNotFound error={error || "This repo has no issues yet"} />
           )}
         </div>
       </div>

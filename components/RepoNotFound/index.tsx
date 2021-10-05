@@ -33,7 +33,6 @@ export default function RepoNotFound({ error }: { error: string | null }) {
   if (error !== "Not Found") {
     return (
       <div>
-        <h1>Error</h1>
         <p id="search-repo-message">{error}</p>
       </div>
     );
